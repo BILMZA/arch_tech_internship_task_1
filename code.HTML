@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilal Hamza | Portfolio</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('WHITE.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background-color: #2C4278;
+            color: white;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-left h1 {
+            width: 100%;
+            font-size: 36px;
+            letter-spacing: 3px;
+        }
+
+        .header-left p {
+            font-size: 14px;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .header-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .header-img:hover {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #1a2a4a;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 25px;
+            margin: 0 5px;
+            border-radius: 25px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            background-color: #4a6fa5;
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 30px 40px;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-3px);
+        }
+
+        h2, .section-title {
+            font-size: 28px;
+            color: #2C4278;
+            border-bottom: 3px solid #2C4278;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-family: Impact, Haettenschweiler, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: #2C4278;
+            margin: 20px 0 10px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-text {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* ===== BACKGROUND / EDUCATION ===== */
+        .background-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .background-list li {
+            padding: 12px 20px;
+            margin: 8px 0;
+            background: #f0f4f9;
+            border-left: 4px solid #2C4278;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .background-list strong {
+            color: #2C4278;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .skill-item {
+            background: #2C4278;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: default;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            background: #1a2a4a;
+            box-shadow: 0 4px 15px rgba(44, 66, 120, 0.4);
+        }
+
+        /* ===== PROGRESS BARS ===== */
+        .progress-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f0f4f9;
+            border-radius: 10px;
+        }
+
+        .progress-item {
+            margin: 15px 0;
+        }
+
+        .progress-item label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+            color: #2C4278;
+        }
+
+        progress {
+            width: 60%;
+            height: 25px;
+            border-radius: 10px;
+            appearance: none;
+        }
+
+        progress::-webkit-progress-bar {
+            background: #ddd;
+            border-radius: 10px;
+        }
+
+        progress::-webkit-progress-value {
+            background: #2C4278;
+            border-radius: 10px;
+            transition: width 0.5s;
+        }
+
+        /* ===== PROJECTS ===== */
+        .project-card {
+            background: #f8faff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #2C4278;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 20px rgba(44, 66, 120, 0.15);
+            transform: translateX(5px);
+        }
+
+        .project-card h4 {
+            font-size: 20px;
+            color: #2C4278;
+            margin-bottom: 8px;
+        }
+
+        .project-card ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .project-card ul li {
+            margin: 5px 0;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #2C4278;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: #1a2a4a;
+            transform: scale(1.05);
+        }
+
+        .project-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 3px solid #ddd;
+            transition: transform 0.3s;
+        }
+
+        .project-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* ===== CONTAINER FOR FLEX PROJECTS ===== */
+        .flex-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .flex-container .project-img {
+            max-width: 300px;
+        }
+
+        /* ===== CONTACT / FOOTER ===== */
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            padding: 10px 0;
+            font-size: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-info li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-info a {
+            color: #2C4278;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #4a6fa5;
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #2C4278;
+            font-size: 32px;
+            margin: 0 15px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: #4a6fa5;
+            transform: scale(1.2) translateY(-3px);
+        }
+
+        /* ===== FORM ===== */
+        .subscribe-form {
+            background: #f0f4f9;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 100%;
+        }
+
+        .subscribe-form input,
+        .subscribe-form textarea {
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            margin: 5px 0 15px;
+        }
+
+        .subscribe-form input:focus,
+        .subscribe-form textarea:focus {
+            border-color: #2C4278;
+            outline: none;
+        }
+
+        .subscribe-form button {
+            background: #2C4278;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background: #1a2a4a;
+            transform: scale(1.05);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a2a4a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 8px 0;
+        }
+
+        footer .social-links a {
+            color: white;
+            font-size: 28px;
+            margin: 0 12px;
+        }
+
+        footer .social-links a:hover {
+            color: #4a6fa5;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .header-left h1 {
+                font-size: 28px;
+                
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                padding: 8px 15px;
+                font-size: 14px;
+                margin: 3px;
+            }
+
+            section {
+                padding: 20px;
+                margin: 20px 15px;
+            }
+
+            .flex-container {
+                flex-direction: column;
+            }
+
+            .flex-container .project-img {
+                max-width: 100%;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .progress-item label {
+                width: 100%;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            progress {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header-left">
+            <h1>BILAL HAMZA</h1>
+            <p>DEVOPS | NETWORK ENGINEER | DATA ANALYST</p>
+        </div>
+        
+    </header>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#background">Background</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+       
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p class="about-text">
+            Pursuing a Bachelor's degree in Computer Science (BSIT) with a strong interest in DevOps, Networking, 
+            and Data Analysis. Passionate about technology, I strive to enhance my skills and work on innovative 
+            solutions in these fields. I am passionate about creating user-friendly applications and continuously 
+            improving my technical knowledge through hands-on projects, academic learning, and problem-solving.
+        </p>
+    </section>
+
+    <!-- ===== BACKGROUND ===== -->
+    <section id="background">
+        <h2>Background</h2>
+        <ul class="background-list">
+            <li><strong>Education:</strong> Bachelor of Science in Computer Science (Information Technology)</li>
+            <li><strong>Certifications:</strong> Google Professional Certification, Software Testing Certifications, Technical Training</li>
+            <li><strong>Achievements:</strong> 90% score in NSCI National Skill Competency Test</li>
+        </ul>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">DevOps</div>
+            <div class="skill-item">Networking</div>
+            <div class="skill-item">Data Analysis</div>
+            <div class="skill-item">Web Development</div>
+            <div class="skill-item">Software Testing</div>
+            <div class="skill-item">Team Collaboration</div>
+        </div>
+
+        <!-- Progress Bars -->
+        <div class="progress-container">
+            <div class="progress-item">
+                <label>DevOps</label>
+                <progress max="100" value="70">70%</progress>
+            </div>
+            <div class="progress-item">
+                <label>Networking</label>
+                <progress max="100" value="80">80%</progress>
+            </div>
+            <div class="progress-item">
+                <label>Data Analysis</label>
+                <progress max="100" value="50">50%</progress>
+            </div>
+            <div class="progress-item">
+                <label>Web Development</label>
+                <progress max="100" value="60">60%</progress>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <!-- Project 1 -->
+        <div class="project-card">
+            <h4>Real-Time Data Analysis</h4>
+            <p><strong>Tech Stack:</strong> Python, SQL, PowerBI</p>
+            <p>Data was collected from computer using Python, stored in SQL, then Power BI was used to provide 
+            visualization of data collected. Different libraries of Python were used for data collection.</p>
+            <a href="https://github.com/BILMZA/DATA-ANALYSIS" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <h4>Online Interactive Card Game</h4>
+            <p><strong>Tech Stack:</strong> Next.js, Node.js, Socket.io</p>
+            <p>Developed a full-stack interactive card game. Deployed on Railway and published on GitHub.</p>
+            <a href="https://github.com/BILMZA"  target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <h4>Manual Web Application Testing</h4>
+            <p>Conducted a manual test suite for a web application, identified and reported bugs, and collaborated 
+            with the development team to improve product quality.</p>
+              <a href="https://github.com/BILMZA"  target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+            <h4>TCS Courier System</h4>
+            <p><strong>Tech Stack:</strong> Cisco Packet Tracer</p>
+            <p>Built a networking-based courier system simulation using Cisco Packet Tracer to demonstrate core 
+            networking principles.</p>
+              <a href="https://github.com/BILMZA"  target="_blank" class="project-link"><i class="fab fa-github"></i> View Project</a>
+        </div>
+    </section>
+
+   
+    <!-- ===== ACHIEVEMENTS ===== -->
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li style="padding: 12px 20px; background: #f0f4f9; margin: 8px 0; border-radius: 8px; border-left: 4px solid #2C4278;">
+                90% score in NSCI National Skill Competency Test
+            </li>
+            <li style="padding: 12px 20px; background: #f0f4f9; margin: 8px 0; border-radius: 8px; border-left: 4px solid #2C4278;">
+                Completed professional certifications in software testing and quality assurance
+            </li>
+            <li style="padding: 12px 20px; background: #f0f4f9; margin: 8px 0; border-radius: 8px; border-left: 4px solid #2C4278;">
+                Google Professional Certification
+            </li>
+        </ul>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <ul class="contact-info">
+            <li><strong>Email:</strong> <a href="mailto:bilmza0@gmail.com">bilmza0@gmail.com</a></li>
+          
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/bilalhamza11" target="_blank">linkedin.com/in/bilalhamza11</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/BILMZA" target="_blank">github.com/BILMZA</a></li>
+        </ul>
+
+        <div class="social-links">
+            <a href="https://linkedin.com/in/bilalhamza11" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/BILMZA" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+
+     
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>&copy; 2026 Bilal Hamza. All Rights Reserved.</p>
+        <p>Connect with me:</p>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/bilalhamza11" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/BILMZA" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p style="margin-top: 10px; opacity: 0.7; font-size: 14px;">Built with love | Bilal Hamza</p>
+    </footer>
+
+</body>
+</html>
